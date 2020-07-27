@@ -3,20 +3,37 @@ import ToDoItem from "./ToDoItem";
 import InputArea from "./InputArea";
 
 function App() {
-  const [items, setItems] = useState([]);
+  if(document.cookie.length === 0){
+    document.cookie = "u=[]"
+  }
+  let res;
+  if(document.cookie ==='u=[]' || document.cookie==="u="){
+    res = [];
+  }
+  else{
+    res = ([...document.cookie.substring(2).split(',')])
+  }
+  const [items, setItems] = useState(res);
 
   function addItem(inputText) {
+    
     setItems(prevItems => {
       return [...prevItems, inputText];
     });
+    document.cookie = ("u=" + items+ "; expires=Fri, 5 Oct 2028 14:28:00 GMT");
   }
 
   function deleteItem(id) {
+    
     setItems(prevItems => {
-      return prevItems.filter((item, index) => {
+
+      let newThing = prevItems.filter((item, index) => {
         return index !== id;
       });
+      document.cookie = ("u=" + newThing + "; expires=Fri, 5 Oct 2028 14:28:00 GMT");
+      return newThing;
     });
+    document.cookie = ("u=" + items + "; expires=Fri, 5 Oct 2028 14:28:00 GMT");
   }
 
   return (
@@ -27,14 +44,15 @@ function App() {
       <InputArea addItem={addItem} />
       <div>
         <ul>
-          {items.map((todoItem, index) => (
+          {items.map((todoItem, index) => { document.cookie="u=" + items + "; expires=Fri, 5 Oct 2028 14:28:00 GMT";
+            return (
             <ToDoItem
               key={index}
               id={index}
               text={todoItem}
               onChecked={deleteItem}
             />
-          ))}
+          )})}
         </ul>
       </div>
     </div>
