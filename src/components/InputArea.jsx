@@ -22,4 +22,6 @@ function InputArea(props) {
     </div>
   );
 }
+
 export default InputArea;
+
