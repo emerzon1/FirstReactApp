@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/9813a747-52c0-4f3e-b939-8a31929f6e5f/deploy-status)](https://app.netlify.com/sites/todo-app-first-react-app/deploys)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## In order to run this on your computer, run:
