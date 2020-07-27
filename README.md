@@ -1,5 +1,11 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## In order to run this on your computer, run:
+###  `npm install`
+Then follow instructions.
+
+Also, the project is available at [ToDo App](https://todo-app-first-react-app.netlify.app)
+
 ## Available Scripts
 
 In the project directory, you can run:
